@@ -1,0 +1,23 @@
+.heading{
+    height: 100px;
+    animation: mymove 5s infinite;
+    font-style: italic
+  }
+  
+  @keyframes mymove {
+    50% {font: 40px bold;}
+  }
+
+  .back{
+    background-image: url("../images/bkg.jpg");
+  }
+
+  .login{
+    background: rgba(44, 62, 80, 0.7);
+    padding:40px;
+    width:350px;
+    margin:auto;
+    margin-top:80px;
+    height: 400px;
+    margin-left:500px;
+  }

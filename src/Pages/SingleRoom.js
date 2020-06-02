@@ -7,6 +7,8 @@ import StyledHero from "../components/StyledHero";
 import defaultBcg from "../images/room-1.jpeg";
 import Navbar from '../components/Navbar';
 import Services from "../components/Services"
+//import Example from "../components/Example"
+import {Button, Modal} from "react-bootstrap"
 
 export default class SingleRoom extends Component {
     constructor(props) {
@@ -14,16 +16,26 @@ export default class SingleRoom extends Component {
         console.log(this.props);
         this.state = {
             slug: this.props.match.params.slug,
-            defaultBcg: defaultBcg
+            bname:this.props.match.params.bname,
+            defaultBcg: defaultBcg,
+            show:false
         };
     }
     static contextType = RoomContext;
-
+ handleClose = () =>
+    { this.setState({show:false});
+}
+handleShow = () =>
+    { this.setState({show:true});
+}
     
     render() {
         const { getRoom } = this.context;
         const room = getRoom(this.state.slug);
-         console.log(room,"=====")
+        
+        //  const { getfiction } = this.context;
+        //  const fic = getfiction(this.state.bname);
+    
         if (!room) {
             return (
                 <div className="error">
@@ -36,11 +48,14 @@ export default class SingleRoom extends Component {
         }
         const {
             name,
-            images
+            images,
+            books
         } = room;
 
         const [mainImg, ...defaultImg]= images;
-        const {slug}= room;
+        const {slug,bname}= room;
+        console.log(room,"megha")
+        
         return (
             <>
                 <StyledHero img={mainImg || this.state.defaultImg}>
@@ -54,21 +69,40 @@ export default class SingleRoom extends Component {
                 </StyledHero>
                 <section className="single-room">
                     <div className="single-room-images">
-                            {defaultImg.map((item, index) => {
+                            {books.map((item, index) => {
+                                console.log(item,"====")
                                return <article className="room">
                                 <div className="img-container">
-                                <img key={index} src={item} alt={name}/>
-                                 <Link to={`/rooms ${slug}`} className="btn-primary room-link">
+                                <img key={index} src={item.url} alt={item.url}/>
+                                {/* <Example>
+                                 <Link to={`/rooms/${slug}`} className="btn-primary room-link">
                                  read
                                  </Link>
-                                </div>
+                                 </Example> */}
+                                 <Button variant="primary" onClick={this.handleShow}>
+              Read this book
+            </Button>
+            <Modal show={this.state.show} onHide={this.handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>you are reading</Modal.Title>
+              </Modal.Header>
+              <Modal.Body><p>{item.description}</p></Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={this.handleClose}>
+                  Close
+                </Button>
+
+{/* <Button variant="primary" onClick={handleClose}>
+                  Save Changes
+                </Button> */}
+              </Modal.Footer>
+            </Modal>
+         </div>
                                 </article> 
                          })
                          }      
                     </div>
                 </section> 
-
-
                     <Services/>
             </>
         )

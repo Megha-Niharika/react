@@ -9,7 +9,7 @@ export default function Error() {
         <Hero>
              <Navbar/>
 <Banner title="404" subtitle="page not found">
-<Link to='/' className='btn-primary'>
+<Link to='/home' className='btn-primary'>
 return to home page
 </Link>
 </Banner>

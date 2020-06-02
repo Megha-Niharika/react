@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { login } from '../logincomponent/UserFunctions'
 import {Link} from "react-router-dom";
 import Navbar from "./Navbar";
+import car from '../images/bkg.jpg';
+import  "./login.css"
 
 class Login extends Component {
   constructor() {
@@ -45,16 +47,17 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="container">
-
-      <Navbar />
+      <div className="back">
+     
+      {/* <Navbar /> */}
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
 
-          
+          <h3 className="heading"> Open Book Library Application</h3>
             <form noValidate onSubmit={this.onSubmit}>
            
               <h1 className="h3 mb-3 font-weight-normal">{this.state.errors}</h1>
+              <h5 className="h3 mb-3 font-weight-normal">Please Login Here</h5>
               <div className="form-group">
                 <label htmlFor="email">Email address</label>
                 <input

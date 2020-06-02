@@ -37,6 +37,7 @@ import Register from './logincomponent/Register'
 import Rooms from './Pages/Rooms';
  import SingleRoom from './Pages/SingleRoom';
  import Error from './Pages/Error';
+ //import Book from "./Pages/Book"
 
 class App extends Component {
   render() {
@@ -51,7 +52,8 @@ class App extends Component {
          
        <Route exact path="/rooms/" component={Rooms}/>
        <Route exact path="/rooms/:slug" component={SingleRoom}/>
-       <Route exact path="/rooms/:slug/:bname" component={SingleRoom}/>
+       {/* <Route exact path="/rooms/:slug/:books" component={Book}/>
+       <Route exact path="/books" component={Book}/> */}
       <Route component={Error}/>
      </Switch>
           </div>
