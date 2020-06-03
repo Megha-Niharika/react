@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { register } from './UserFunctions'
+import Navbar from "./Navbar"
+import "./login.css"
 
 class Register extends Component {
   constructor() {
@@ -9,7 +11,7 @@ class Register extends Component {
       last_name: '',
       email: '',
       password: '',
-      errors: {}
+      errors: ""
     }
 
     this.onChange = this.onChange.bind(this)
@@ -30,16 +32,26 @@ class Register extends Component {
     }
 
     register(newUser).then(res => {
-      this.props.history.push(`/login`)
+      if (res.status === 200) {
+        console.log("-------")
+        this.props.history.push(`/login`)
+      }
+      else{
+        console.log(res)
+        this.setState({errors:res.data.error})
+      }
     })
   }
 
   render() {
     return (
+     
       <div className="container">
+       <Navbar/>
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>
+            
               <h1 className="h3 mb-3 font-weight-normal">Register</h1>
               <div className="form-group">
                 <label htmlFor="name">First name</label>
@@ -91,6 +103,7 @@ class Register extends Component {
               >
                 Register!
               </button>
+              <h5> {this.state.errors}</h5>
             </form>
           </div>
         </div>

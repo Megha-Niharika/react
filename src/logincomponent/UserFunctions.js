@@ -11,6 +11,10 @@ export const register = newUser => {
     .then(response => {
       console.log('Registered')
     })
+    .catch(err => {
+      console.log(err)
+      return err.response
+    })
 }
 
 export const login = user => {
@@ -21,6 +25,21 @@ export const login = user => {
     })
     .then(response => {
       localStorage.setItem('usertoken', response.data)
+      return response
+    })
+    .catch(err => {
+      console.log(err)
+      return err.response
+    })
+    
+}
+export const categories = cat => {
+  return axios
+    .get('/rooms', {
+      c_id: cat.c_id,
+      c_name: cat.c_name
+    })
+    .then(response => {
       return response
     })
     .catch(err => {

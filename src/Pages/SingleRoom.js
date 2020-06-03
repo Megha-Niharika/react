@@ -16,17 +16,23 @@ export default class SingleRoom extends Component {
         console.log(this.props);
         this.state = {
             slug: this.props.match.params.slug,
-            bname:this.props.match.params.bname,
             defaultBcg: defaultBcg,
-            show:false
-        };
+           bookDesc:"",
+           show: false
+        };   
     }
+
     static contextType = RoomContext;
- handleClose = () =>
+      handleClose = () =>
     { this.setState({show:false});
-}
-handleShow = () =>
-    { this.setState({show:true});
+       }
+handleShow = (item) =>
+    { 
+        this.setState({show:true});
+    //this.state.show= true;
+    this.setState({bookDesc:item.description})
+    console.log(item,"itemmmmm")
+    
 }
     
     render() {
@@ -74,36 +80,34 @@ handleShow = () =>
                                return <article className="room">
                                 <div className="img-container">
                                 <img key={index} src={item.url} alt={item.url}/>
-                                {/* <Example>
-                                 <Link to={`/rooms/${slug}`} className="btn-primary room-link">
-                                 read
-                                 </Link>
-                                 </Example> */}
-                                 <Button variant="primary" onClick={this.handleShow}>
+             <Button variant="primary" onClick={()=>this.handleShow(item)}>
               Read this book
             </Button>
-            <Modal show={this.state.show} onHide={this.handleClose}>
-              <Modal.Header closeButton>
-                <Modal.Title>you are reading</Modal.Title>
-              </Modal.Header>
-              <Modal.Body><p>{item.description}</p></Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={this.handleClose}>
-                  Close
-                </Button>
-
-{/* <Button variant="primary" onClick={handleClose}>
-                  Save Changes
-                </Button> */}
-              </Modal.Footer>
-            </Modal>
-         </div>
-                                </article> 
-                         })
-                         }      
-                    </div>
+            </div>
+            </article>
+            })}
+            
+            <Modal 
+    show={this.state.show}
+    onHide={this.handleClose}
+    dialogClassName="modal-150w"
+    aria-labelledby="example-custom-modal-styling-title"
+    centered
+  >
+    <Modal.Header closeButton>
+      <Modal.Title>
+        Read the book
+      </Modal.Title>
+    </Modal.Header>
+    <Modal.Body>
+      
+      {this.state.bookDesc}
+      
+    </Modal.Body>
+  </Modal>   
+                </div>
                 </section> 
-                    <Services/>
+                 <Services/>
             </>
         )
     }

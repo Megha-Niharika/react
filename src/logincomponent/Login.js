@@ -49,31 +49,31 @@ class Login extends Component {
     return (
       <div className="back">
      
-      {/* <Navbar /> */}
+      <Navbar />
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
 
-          <h3 className="heading"> Open Book Library Application</h3>
+          <h3 className="h3"> Open Library Application</h3>
             <form noValidate onSubmit={this.onSubmit}>
            
               <h1 className="h3 mb-3 font-weight-normal">{this.state.errors}</h1>
-              <h5 className="h3 mb-3 font-weight-normal">Please Login Here</h5>
-              <div className="form-group">
-                <label htmlFor="email">Email address</label>
+              <h5 className="h3 mb-3 font-weight-normal">Login</h5>
+              <div className="textbox">
+                
                 <input
                   type="email"
-                  className="form-control"
+                  //className="form-control"
                   name="email"
                   placeholder="Enter email"
                   value={this.state.email}
                   onChange={this.onChange}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
+              <div className="textbox">
+
                 <input
                   type="password"
-                  className="form-control"
+                 // className="form-control"
                   name="password"
                   placeholder="Password"
                   value={this.state.password}
@@ -82,9 +82,9 @@ class Login extends Component {
               </div>
               <button
                 type="submit"
-                className="btn btn-lg btn-primary btn-block"
+               className="btn"
+               //className="sign"
               >
-              
               Sign in
               </button>
             </form>

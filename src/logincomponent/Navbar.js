@@ -27,13 +27,13 @@ class Landing extends Component {
     const userLink = (
       <ul className="navbar-nav">
         <li className="nav-item">
-          <Link to="/profile" className="nav-link">
+          {/* <Link to="/profile" className="nav-link">
             User
-          </Link>
+          </Link> */}
         </li>
         <li className="nav-item">
           <a href="" onClick={this.logOut.bind(this)} className="nav-link">
-            Logout
+            Click here for Register!!!!
           </a>
         </li>
       </ul>

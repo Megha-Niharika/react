@@ -10,7 +10,7 @@ export default function Home() {
         <>
         <Hero>
         <Navbar/>
-            <Banner title="WelCome"
+            <Banner title="Welcome"
              subtitle="Yesterday is history, tomorrow is a mystery, today is a gift of God, which is why we call it the present.">
             <Link to="/rooms" className="btn-primary">
             Browse Genres
