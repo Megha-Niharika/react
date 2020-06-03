@@ -11,7 +11,7 @@
   }
 
   .back{
-    background-image: url("../images/room-2.jpeg");
+    background-image: url("../images/defaultBcg.jpeg");
     background-size: cover;
     min-height: 100vh ;
 
@@ -62,7 +62,7 @@
 
 .btn{
   width: 100%;
-  background: none;
+  background: black;
   border: 2px solid white;
   color: white;
   padding: 5px;
