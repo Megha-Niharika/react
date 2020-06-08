@@ -18,7 +18,7 @@ componentDidMount = () => {
       .then((response) => {
         const data = response.data;
         this.setState({ posts: data });
-        console.log('Data has been received!!');
+        console.log('Data has been received!!',data);
       })
       .catch(() => {
         alert('Error retrieving data!!!');
@@ -26,70 +26,37 @@ componentDidMount = () => {
   }
 
   displayBlogPost = (posts) => {
-
+    
      if (!posts.length) return null;
 
-    return posts.map((post, index) => (
-        
-      <div key={index} className="customers">
-      <table>
-        <tr>
+      return posts.map((post, index) => (
+        <tr  key={index.id} className="customers">
         <td>{post.b_id} </td>
-        {/* <td>{post.a_name}</td>
-        <td>{post.b_name}</td> */}
+        <td>{post.a_name}</td>
+        <td>{post.b_name}</td> 
+        <button id="addBtn" >ADD</button>
         </tr>
-        
-        </table>
-        </div>
-        
     ))
   };
 
   render(){
+   
       return ( 
-         <div className="customers">
+         <div>
          <Nav/>
-         <table>
-          <tr>
+         <table  className="customers">
+           <thead>
+              <tr>
               <th>id</th>
-               <th>aname</th>
+              <th>aname</th>
               <th>bname</th>
-           </tr>
-
+              </tr>
+           </thead>
+          <tbody>
           {this.displayBlogPost(this.state.posts)}
+          </tbody>
           </table>
-
-        {/* <table>
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Savings</th>
-  </tr>
-  <tr>
-    <td>Peter</td>
-    <td>Griffin</td>
-    <td>$100</td>
-  </tr>
-  <tr>
-    <td>Lois</td>
-    <td>Griffin</td>
-    <td>$150</td>
-  </tr>
-  <tr>
-    <td>Joe</td>
-    <td>Swanson</td>
-    <td>$300</td>
-  </tr>
-  <tr>
-    <td>Cleveland</td>
-    <td>Brown</td>
-    <td>$250</td>
-  </tr>
-</table> */}
-
         </div>
-       
       )
   }
-
-    }
+ }

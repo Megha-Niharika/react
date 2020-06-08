@@ -9,7 +9,8 @@ import Register from './logincomponent/Register'
 import Rooms from './Pages/Rooms';
  import SingleRoom from './Pages/SingleRoom';
  import Error from './Pages/Error';
-import BookList from "../src/Pages/BookList"
+import BookList from "../src/Pages/BookList";
+import Cart from "./Pages/Cart"
 class App extends Component {
 
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/books" component={BookList} />
+            <Route exact path="/cart" component={Cart} />
        <Route exact path="/rooms/" component={Rooms}/>
        <Route exact path="/rooms/:slug" component={SingleRoom}/>
       <Route component={Error}/>

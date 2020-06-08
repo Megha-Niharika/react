@@ -24,12 +24,12 @@ export default class SingleRoom extends Component {
 
     static contextType = RoomContext;
       handleClose = () =>
-    { this.setState({show:false});
+      { 
+        this.setState({show:false});
        }
-handleShow = (item) =>
+    handleShow = (item) =>
     { 
-        this.setState({show:true});
-    //this.state.show= true;
+    this.setState({show:true});
     this.setState({bookDesc:item.description})
     console.log(item,"itemmmmm")
     
@@ -38,9 +38,6 @@ handleShow = (item) =>
     render() {
         const { getRoom } = this.context;
         const room = getRoom(this.state.slug);
-        
-        //  const { getfiction } = this.context;
-        //  const fic = getfiction(this.state.bname);
     
         if (!room) {
             return (
@@ -101,7 +98,11 @@ handleShow = (item) =>
     </Modal.Header>
     <Modal.Body>
       
-      {this.state.bookDesc}
+
+       {this.state.bookDesc}
+      <Link to="/cart" classname="btn-primary">
+      go to cart </Link>
+     
       
     </Modal.Body>
   </Modal>   
