@@ -62,7 +62,6 @@ class Login extends Component {
                 
                 <input
                   type="email"
-                  //className="form-control"
                   name="email"
                   placeholder="Enter email"
                   value={this.state.email}
@@ -73,7 +72,6 @@ class Login extends Component {
 
                 <input
                   type="password"
-                 // className="form-control"
                   name="password"
                   placeholder="Password"
                   value={this.state.password}
@@ -83,7 +81,6 @@ class Login extends Component {
               <button
                 type="submit"
                className="btn"
-               //className="sign"
               >
               Sign in
               </button>

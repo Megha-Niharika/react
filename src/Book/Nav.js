@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {FaAlignRight} from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 
-export default class Navbar extends Component {
+
+export default class Nav extends Component {
     state={
         isOpen:false
     }
@@ -25,17 +26,15 @@ export default class Navbar extends Component {
             <ul
             className={this.state.isOpen ? "nav-links show-nav" : "nav-links"}
           >
+            
             <li>
               <Link to="/home">Home</Link>
             </li>
             <li>
-              <Link to="/rooms">Genres</Link>
+              <Link to="/cart">Cart</Link>
             </li>
             <li>
-              <Link to="/books">Book List</Link>
-            </li>
-            <li>
-              <Link to="/">LogOut</Link>
+              <Link to="/login">Logout</Link>
             </li>
           </ul>
             </div>

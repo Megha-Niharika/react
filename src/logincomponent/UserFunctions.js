@@ -9,7 +9,8 @@ export const register = newUser => {
       password: newUser.password
     })
     .then(response => {
-      console.log('Registered')
+      console.log('Registered');
+      return response;
     })
     .catch(err => {
       console.log(err)

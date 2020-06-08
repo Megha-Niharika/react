@@ -32,8 +32,9 @@ class Register extends Component {
     }
 
     register(newUser).then(res => {
+      console.log("-------",res)
       if (res.status === 200) {
-        console.log("-------")
+       
         this.props.history.push(`/login`)
       }
       else{
